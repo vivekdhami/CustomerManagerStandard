@@ -1,50 +1,54 @@
-﻿(function () {
-
-    var injectParams = ['$http', '$rootScope'];
-
-    var authFactory = function ($http, $rootScope) {
-        var serviceBase = '/api/dataservice/',
-            factory = {
-                loginPath: '/login',
-                user: {
-                    isAuthenticated: false,
-                    roles: null
-                }
+var App;
+(function (App) {
+    var Services;
+    (function (Services) {
+        var User = (function () {
+            function User() {
+            }
+            return User;
+        })();
+        var LoginStatus = (function () {
+            function LoginStatus() {
+            }
+            return LoginStatus;
+        })();
+        var AuthService = (function () {
+            function AuthService($http, $routeScope) {
+                this.$http = $http;
+                this.$routeScope = $routeScope;
+                this.serviceBase = '/api/dataservice/';
+                this.user = new User();
+            }
+            AuthService.prototype.login = function (email, password) {
+                var _this = this;
+                return this.$http.post(this.serviceBase + 'login', { userLogin: { username: email, password: password } })
+                    .then(function (response) {
+                    _this.changeAuth(response.data.status);
+                    return response.data.status;
+                });
             };
-
-        factory.login = function (email, password) {
-            return $http.post(serviceBase + 'login', { userLogin: { userName: email, password: password } }).then(
-                function (results) {
-                    var loggedIn = results.data.status;;
-                    changeAuth(loggedIn);
-                    return loggedIn;
+            AuthService.prototype.logout = function () {
+                var _this = this;
+                return this.$http.post(this.serviceBase + 'logout', null)
+                    .then(function (response) {
+                    _this.changeAuth(!response.data.status);
+                    return response.data.status;
                 });
-        };
-
-        factory.logout = function () {
-            return $http.post(serviceBase + 'logout').then(
-                function (results) {
-                    var loggedIn = !results.data.status;
-                    changeAuth(loggedIn);
-                    return loggedIn;
-                });
-        };
-
-        factory.redirectToLogin = function () {
-            $rootScope.$broadcast('redirectToLogin', null);
-        };
-
-        function changeAuth(loggedIn) {
-            factory.user.isAuthenticated = loggedIn;
-            $rootScope.$broadcast('loginStatusChanged', loggedIn);
+            };
+            AuthService.prototype.redirectToLogin = function () {
+                this.$routeScope.$broadcast('redirectToLogin', null);
+            };
+            AuthService.prototype.changeAuth = function (loggedIn) {
+                this.user.isAuthenticated = loggedIn;
+                this.$routeScope.$broadcast('loginStatusChanged', loggedIn);
+            };
+            return AuthService;
+        })();
+        factory.$inject = ['$http', '$rootScope'];
+        function factory($http, $routeScope) {
+            return new AuthService($http, $routeScope);
         }
-
-        return factory;
-    };
-
-    authFactory.$inject = injectParams;
-
-    angular.module('customersApp').factory('authService', authFactory);
-
-}());
-
+        angular.module('customersApp')
+            .factory('authService', factory);
+    })(Services = App.Services || (App.Services = {}));
+})(App || (App = {}));

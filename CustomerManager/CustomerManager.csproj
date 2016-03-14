@@ -129,23 +129,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\customersApp\animations\listAnimations.js" />
-    <Content Include="app\customersApp\app.js" />
-    <Content Include="app\customersApp\controllers\aboutController.js" />
-    <Content Include="app\customersApp\controllers\customers\customerEditController.js" />
-    <Content Include="app\customersApp\controllers\customers\customerOrdersController.js" />
-    <Content Include="app\customersApp\controllers\customers\customersController.js" />
-    <Content Include="app\customersApp\controllers\loginController.js" />
-    <Content Include="app\customersApp\controllers\navbarController.js" />
-    <Content Include="app\customersApp\controllers\orders\orderChildController.js" />
-    <Content Include="app\customersApp\controllers\orders\ordersController.js" />
-    <Content Include="app\customersApp\directives\wcUnique.js" />
-    <Content Include="app\customersApp\filters\nameCityStateFilter.js" />
-    <Content Include="app\customersApp\filters\nameProductFilter.js" />
     <Content Include="app\customersApp\partials\modal.html" />
-    <Content Include="app\customersApp\services\authService.js" />
-    <Content Include="app\customersApp\services\httpInterceptors.js" />
-    <Content Include="app\customersApp\services\modalService.js" />
     <Content Include="app\customersApp\views\about.html" />
     <Content Include="app\customersApp\views\customers\customerEdit.html" />
     <Content Include="app\customersApp\views\customers\customerOrders.html" />
@@ -153,12 +137,6 @@
     <Content Include="app\customersApp\views\login.html" />
     <Content Include="app\customersApp\views\orders\orders.html" />
     <Content Include="app\customersApp\views\orders\ordersTable.html" />
-    <Content Include="app\customersApp\services\config.js" />
-    <Content Include="app\customersApp\services\customersBreezeService.js" />
-    <Content Include="app\customersApp\services\customersService.js" />
-    <Content Include="app\customersApp\services\dataService.js" />
-    <Content Include="app\wc.directives\directives\menuHighlighter.js" />
-    <Content Include="app\wc.directives\directives\wcOverlay.js" />
     <Content Include="Content\animations.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.icon-large.min.css" />
@@ -250,12 +228,35 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\customersApp\animations\listAnimations.ts" />
     <TypeScriptCompile Include="app\customersApp\app.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\aboutController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\customers\customerEditController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\customers\customerOrdersController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\customers\customersController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\loginController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\navbarController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\orders\orderChildController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\orders\ordersController.ts" />
+    <TypeScriptCompile Include="app\customersApp\directives\lazyLoader.ts" />
+    <TypeScriptCompile Include="app\customersApp\directives\wcUnique.ts" />
+    <TypeScriptCompile Include="app\customersApp\filters\nameCityStateFilter.ts" />
+    <TypeScriptCompile Include="app\customersApp\filters\nameProductFilter.ts" />
     <TypeScriptCompile Include="app\customersApp\services\authService.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\config.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\customersBreezeService.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\customersService.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\dataService.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\httpInterceptors.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\modalService.ts" />
+    <TypeScriptCompile Include="app\wc.directives\directives\lazyLoader.ts" />
+    <TypeScriptCompile Include="app\wc.directives\directives\menuHighlighter.ts" />
+    <TypeScriptCompile Include="app\wc.directives\directives\wcOverlay.ts" />
     <TypeScriptCompile Include="typings\browser.d.ts" />
     <TypeScriptCompile Include="typings\browser\ambient\angular-animate\angular-animate.d.ts" />
     <TypeScriptCompile Include="typings\browser\ambient\angular-route\angular-route.d.ts" />
     <TypeScriptCompile Include="typings\browser\ambient\angular\angular.d.ts" />
+    <TypeScriptCompile Include="typings\browser\ambient\greensock\index.d.ts" />
     <TypeScriptCompile Include="typings\browser\ambient\jquery\jquery.d.ts" />
   </ItemGroup>
   <PropertyGroup>
